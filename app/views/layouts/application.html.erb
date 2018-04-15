@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Foodpooltest</title>
+    <title>푸드풀</title>
     <%= csrf_meta_tags %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -27,7 +27,7 @@
     <nav>
       <div class="container">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Foodpool</a>
+          <a href="#" class="brand-logo">푸드풀</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <% if user_signed_in? %>
               <li><%= current_user.email %></li>
