@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<h1>배달 요청 내역</h1>
+
+<!-- Modal Trigger -->
+
+
+<table id="myTable">
+  <thead>
+    <tr>
+      <th>제목</th>
+      <th>메뉴</th>
+      <th>금액</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.title %></td>
+        <td><%= request.memu %></td>
+        <td><%= request.cost %></td>
+        <td><%= link_to 'Show', request %></td>
+        <td><%= link_to 'Edit', edit_request_path(request) %></td>
+        <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Request', "#modal1", class:"waves-effect waves-light btn modal-trigger" %>
+
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h1>New Request</h1>
+
+      <%= render 'form', request: @request %>
+
+      <%= link_to 'Back', requests_path %>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+  </script>
